@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import SearchForm from "@/components/SearchForm";
 import { useRouter } from "next/router";
 
 export default function search() {
@@ -6,6 +8,7 @@ export default function search() {
   return (
     <>
       <h1>검색 결과</h1>
+      <SearchForm initialValue={q} />
       <h2>{q} 검색 결과</h2>
     </>
   )
