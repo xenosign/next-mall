@@ -1,5 +1,9 @@
+import { useRouter } from "next/router";
+
 export default function Products() {
+  const router = useRouter();
+  const { id } = router.query;
   return (
-    <div>1</div>
+    <div>{id} 에 대한 페이지</div>
   )
 }
