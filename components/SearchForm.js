@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
-
-export default function SearchForm({ initialValue = '' }) {
+export default function SearchForm({ initialValue = "" }) {
   const router = useRouter();
   const [value, setValue] = useState(initialValue);
 
@@ -11,10 +10,11 @@ export default function SearchForm({ initialValue = '' }) {
   }
 
   function handleSubmit(e) {
+    // e 까먹지 말기
     e.preventDefault();
 
     if (!value) {
-      router.push('/');
+      router.push("/");
       return;
     }
 
@@ -26,5 +26,5 @@ export default function SearchForm({ initialValue = '' }) {
       <input name="q" value={value} onChange={handleChange} />
       <button>검색</button>
     </form>
-  )
+  );
 }
