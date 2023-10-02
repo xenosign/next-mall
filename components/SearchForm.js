@@ -14,7 +14,6 @@ export default function SearchForm({ initialValue = "" }) {
 
     if (!value) {
       router.push("/");
-      // 리턴 스타일 참고
       return;
     }
 
