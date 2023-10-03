@@ -10,6 +10,7 @@ export default function SearchForm({ initialValue = "" }) {
   }
 
   function handleSubmit(e) {
+    // e 까먹지 말자
     e.preventDefault();
 
     if (!value) {
