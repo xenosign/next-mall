@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <h1 className={styles.title}>CodeItMall</h1>
+      <h1 className={styles.title}>Tetz Mall</h1>
       <SearchForm />
       <ul>
         <li>
