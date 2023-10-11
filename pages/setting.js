@@ -1,18 +1,32 @@
+import Dropdown from '@/components/DropDown';
 import { useTheme } from '@/lib/ThemeContext';
+import styles from '@/styles/Setting.module.css';
 
 export default function Setting() {
   const { theme, setTheme } = useTheme();
 
-  const handleSelected = (e) => {
-    setTheme(e.target.value)
+  function handleDropdownChange(name, value) {
+    const nextTheme = value;
+
+    setTheme(nextTheme);
   }
 
   return (
-    <div>
-      <select onChange={handleSelected}>
-        <option value={'dark'}>다크 모드</option>
-        <option value={'light'}>일반 모드</option>
-      </select>
-    </div>
+    <>
+      <h1 className={styles.title}>설정</h1>
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>테마 설정</h2>
+        <Dropdown
+          className={styles.dropdown}
+          name="theme"
+          value={theme}
+          options={[
+            { label: '다크', value: 'dark' },
+            { label: '라이트', value: 'light' },
+          ]}
+          onChange={handleDropdownChange}
+        />
+      </section>
+    </>
   );
 }

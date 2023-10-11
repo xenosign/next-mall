@@ -22,3 +22,9 @@
   border: none;
   border-radius: 10px;
 }
+
+:global(.light) .searchInput {
+  color: #505050;
+  background-color: #f9f9f9;
+  border: none;
+}

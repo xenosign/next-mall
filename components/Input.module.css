@@ -7,3 +7,8 @@
   border: none;
   border-radius: 10px;
 }
+
+:global(.light) .input {
+  color: #f9f9f9;
+  background-color: #505050;
+}
