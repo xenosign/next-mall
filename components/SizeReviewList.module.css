@@ -18,6 +18,11 @@
   border-radius: 10px;
 }
 
+:global(.light) .sizeReview {
+  border-color: #e1e1e1;
+  background: #e1e1e1;
+}
+
 .date {
   color: #b5b5b5;
   font-size: 15px;
