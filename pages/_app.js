@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Next-Mall</title>
+        {/* 이미지에 따라서 적용 안될 수 있음 */}
         <link rel="icon" href="/favicon.png" />
       </Head>
       <ThemeProvider>
