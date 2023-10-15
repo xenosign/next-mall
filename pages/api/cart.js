@@ -4,6 +4,8 @@
 
 let cart = [1, 2, 3];
 
+//Menlo, Monaco, 'Courier New', monospace
+
 export default function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json(cart);
