@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
         ` }
         </style>
       </Head>
+      {/* 책으로 기본 개념 잡을 것 */}
       <ThemeProvider>
         <Header />
         <Container>
