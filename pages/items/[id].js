@@ -16,7 +16,7 @@ export async function getStaticPaths() {
         params: { id: '2' }
       }
     ],
-    // 없는 경로에 대한 처리 방법
+    // 없는 경로에 대한 처리 방법 -> 별도로 처리 안함
     fallback: false,
   }
 }

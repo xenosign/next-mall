@@ -20,7 +20,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home() {
+export default function Home({ products }) {
   // 기존에는 랜더가 완료 되고, js 가 실행 되는 시점에서 react hook 으로 데이터를 받아왔지만
   // 위의 코드로 변경해서 이제는 정적 생성에서부터 데이터를 받아서 처리함
 
