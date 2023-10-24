@@ -1,26 +1,26 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import ProductList from "@/components/ProductList";
 import SearchForm from "@/components/SearchForm";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import axios from "@/lib/axios";
 import Head from "next/head";
 
-export default function search() {
-  const [products, setProducts] = useState([]);
-  const router = useRouter();
-  const { q } = router.query;
+// 서버 사이드 랜더링용 함수, 정적 생성과 용법은 비슷
+export async function getServerSideProps(context) {
+  const q = context.query['q'];
 
-  async function getProducts(query) {
-    const res = await axios.get(`/products/?q=${query}`);
-    const nextProducts = res.data.results;
-    setProducts(nextProducts);
+
+  const res = await axios.get(`/products/?q=${q}`);
+  const products = res.data.results;
+
+  return {
+    props: {
+      products,
+      q
+    }
   }
+}
 
-  useEffect(() => {
-    getProducts(q);
-  }, [q]);
-
+export default function search({ q, products }) {
   return (
     <>
       <Head>
