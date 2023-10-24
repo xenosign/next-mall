@@ -8,7 +8,6 @@ import Head from "next/head";
 export async function getServerSideProps(context) {
   const q = context.query['q'];
 
-
   const res = await axios.get(`/products/?q=${q}`);
   const products = res.data.results;
 
