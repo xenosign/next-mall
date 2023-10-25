@@ -32,7 +32,43 @@ export async function getServerSideProps(context) {
 
 }
 
-export default function Products({ product, sizeReviews }) {
+export default function Products({ product, sizeReviews: initialSizeReviews }) {
+  const [sizeReviews, setSizeReviews] = useState(initialSizeReviews)
+  const [formValue, setFormValue] = useState({
+    size: 'M',
+    sex: 'male',
+    height: 173,
+    fit: 'good'
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const sizeReview = {
+      ...formValue,
+      productId: product.id,
+    }
+
+    const res = await axios.post('/size_reviews/', sizeReview);
+    const newSizeReview = res.data;
+    setSizeReviews((prevSizeReviews) => [
+      newSizeReview,
+      ...prevSizeReviews
+    ])
+  }
+
+  async function handleInputChange(e) {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  }
+
+  async function handleChange(name, value) {
+    setFormValue({
+      ...formValue,
+      [name]: value,
+    })
+  }
+
+
   if (!product) return (
     <div>
       <h1>로딩 중....</h1>
